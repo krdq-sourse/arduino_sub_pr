@@ -18,42 +18,55 @@ namespace arduino
             InitializeComponent();
         }
 
+        private void hui()
+        {
+            try
+            {
+                string nazv = textBox1.Text;
+
+                Nastr n = this;
+                Form1.f1.ll(nazv);
+
+                StreamReader sr1 = new StreamReader("D://arduino.txt");
+
+                string c = null;
+                string[,] mas = new string[181, 2];
+
+                while (c != "180")
+                {
+                    string[] s = sr1.ReadLine().Split(';');
+                    c = s[0];
+                    mas[int.Parse(c), 0] = s[0];
+                    mas[int.Parse(c), 1] = s[1];
+
+                    string str = mas[int.Parse(c), 0] + mas[int.Parse(c), 1];
+                    listBox1.Items.Add(str);
+                  
+                }
+                sr1.Close();
+
+                
+
+
+
+                // n.Close();
+
+            }
+            catch (Exception)
+            {
+                hui();
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string nazv = textBox1.Text;
 
-            Nastr n = this;           
-            Form1.f1.ll(nazv);
 
-            StreamReader sr1 = new StreamReader("D://arduino.txt");
-
-            string c = null;
-            string[,] mas = new string[181, 2];
-
-            while (c != "180")
-            {
-                string[] s = sr1.ReadLine().Split(';');
-                c = s[0];
-                mas[int.Parse(c), 0] = s[0];
-                mas[int.Parse(c), 1] = s[1];
-
-                string str = mas[int.Parse(c), 0] + mas[int.Parse(c), 1];
-                listBox1.Items.Add(str);
-
-                label3.Text = ((double)int.Parse(c) / 180 * 100).ToString();
-            }
-            sr1.Close();
-
-            //string str1 = " ";
-            //while (!sr1.EndOfStream) str1 += sr1.ReadLine();
-            //sr1.Close();
-
-            //string[] s = str1.Split(';');
-            //label3.Text = s[1];
+            hui();
+           
 
 
 
-            // n.Close();
         }
     }
 }
