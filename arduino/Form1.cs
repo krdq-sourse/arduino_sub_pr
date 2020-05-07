@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
+using System.IO;
 
 namespace arduino
 {
@@ -18,12 +19,22 @@ namespace arduino
             InitializeComponent();
 
             DrawGraph();
+
+            f1 = this;
         }
+
+        public void ll(string s)
+        {
+            label1.Text = s;
+        }
+
+        public static Form1 f1 { get; set; }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+     
 
         private double f(double x)
         {
@@ -70,5 +81,14 @@ namespace arduino
             // Обновляем график
             zedGraph.Invalidate();
         }
+
+        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Nastr n = new Nastr();
+            n.Show();
+        }
+
+        
+        
     }
 }

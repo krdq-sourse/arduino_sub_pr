@@ -63,6 +63,7 @@
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
+            this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
             // сохранитьОтчетToolStripMenuItem
             // 
@@ -78,6 +79,7 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
+         
             // 
             // zedGraph
             // 
@@ -92,12 +94,13 @@
             this.zedGraph.ScrollMinY2 = 0D;
             this.zedGraph.Size = new System.Drawing.Size(331, 333);
             this.zedGraph.TabIndex = 4;
+            this.zedGraph.ZoomButtons = System.Windows.Forms.MouseButtons.None;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 396);
+            this.ClientSize = new System.Drawing.Size(515, 394);
             this.Controls.Add(this.zedGraph);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
