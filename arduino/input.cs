@@ -8,18 +8,20 @@ namespace arduino
 {
     class InputFromKeybord
     {
-        private  string[,] arr = new string[361, 2];
+        private  string[,] arr = new string[500, 2];
         private string temp = "";
         private int last = 0;
         private int counter = 0;
         public void GettingFromKeybord(string e, Form1 f)
         {
-            last++;
+           
             temp += Convert(e);
-            if (last == 1444)
+            if (last == 6)
             {
                 f.InputToThePole();
+               
             }
+            last++;
         }
         private string Convert(string e)
         {
@@ -45,9 +47,13 @@ namespace arduino
             foreach (string s in str) {
                 string[] tmp = s.Split(';');
                 arr[counter,0] = tmp[0];
-                arr[counter++,1] = tmp[1];
+                arr[counter,1] = tmp[1];
+                counter++;
             }
             return arr;
+        }
+        public string Debug() {
+            return temp;
         }
     }
 }

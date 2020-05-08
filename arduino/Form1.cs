@@ -33,7 +33,6 @@ namespace arduino
         {
 
         }
-     
 
         private double f(double x)
         {
@@ -136,13 +135,41 @@ namespace arduino
 
         public void InputToThePole()
         {
-            pole = inputFromKeybord.ReturnArray();
-            MessageBox.Show("заебись считали");
+             pole = inputFromKeybord.ReturnArray();
+            label1.Text = inputFromKeybord.Debug();
+            MessageBox.Show(pole.Length.ToString());
+            DrowGrid();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        //private void Form1_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    inputFromKeybord.GettingFromKeybord(e.KeyData.ToString(),this);
+        //    MessageBox.Show("хуй");
+        //}
+
+        private void zedGraph_KeyDown(object sender, KeyEventArgs e)
         {
-            inputFromKeybord.GettingFromKeybord(e.KeyData.ToString(),this);
+             inputFromKeybord.GettingFromKeybord(e.KeyCode.ToString(), this);
+           //   label1.Text = e.KeyCode.ToString();
+
+
+        }
+        int kolColums = 0;
+        private void DrowGrid() {
+            DataGridViewTextBoxColumn column;
+            column = new DataGridViewTextBoxColumn();
+
+            column.HeaderText = "Высота";
+            column.Width = 100;
+
+             dataGridView1.Columns.Add(column);
+
+            for (int i = 0; i < 2; i++)
+            {
+        
+                dataGridView1.Rows[i].HeaderCell.Value = pole[i, 0];
+                dataGridView1.Rows[i].Cells[kolColums].Value = pole[i, 1];
+            }
         }
     }
 }
