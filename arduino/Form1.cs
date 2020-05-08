@@ -14,19 +14,20 @@ namespace arduino
 {
     public partial class Form1 : Form
     {
+        string[,] pole;
+        InputFromKeybord inputFromKeybord = new InputFromKeybord();
         public Form1()
         {
             InitializeComponent();
 
             f1 = this;
         }
-
-      //  public void ll(string s)
-        //{
-//            label1.Text = s;
-   //     }
-
-        public static Form1 f1 { get; set; }
+ 
+        public static Form1 f1
+        {
+            get;
+            set;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -133,6 +134,15 @@ namespace arduino
             k++;
         }
 
+        public void InputToThePole()
+        {
+            pole = inputFromKeybord.ReturnArray();
+            MessageBox.Show("заебись считали");
+        }
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            inputFromKeybord.GettingFromKeybord(e.KeyData.ToString(),this);
+        }
     }
 }
