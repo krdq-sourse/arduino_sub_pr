@@ -25,7 +25,7 @@ namespace arduino
                 string nazv = textBox1.Text;
 
                 Nastr n = this;
-                Form1.f1.ll(nazv);
+              //  Form1.f1.ll(nazv);
 
                 StreamReader sr1 = new StreamReader("D://arduino.txt");
 
@@ -48,9 +48,7 @@ namespace arduino
                 
 
 
-
                 // n.Close();
-
             }
             catch (Exception)
             {

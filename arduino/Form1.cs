@@ -21,10 +21,10 @@ namespace arduino
             f1 = this;
         }
 
-        public void ll(string s)
-        {
-            label1.Text = s;
-        }
+      //  public void ll(string s)
+        //{
+//            label1.Text = s;
+   //     }
 
         public static Form1 f1 { get; set; }
 
