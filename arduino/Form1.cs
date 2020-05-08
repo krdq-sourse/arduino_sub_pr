@@ -18,8 +18,6 @@ namespace arduino
         {
             InitializeComponent();
 
-            DrawGraph();
-
             f1 = this;
         }
 
@@ -87,8 +85,54 @@ namespace arduino
             Nastr n = new Nastr();
             n.Show();
         }
+        string[,] mas = new string[181, 2];
+        private void hui()
+        {
+            try
+            {           
+                StreamReader sr1 = new StreamReader("D://arduino.txt");
 
-        
-        
+                string c = null;              
+
+                while (c != "180")
+                {
+                    string[] s = sr1.ReadLine().Split(';');
+                    c = s[0];
+                    mas[int.Parse(c), 0] = s[0];
+                    mas[int.Parse(c), 1] = s[1];                            
+                }
+                sr1.Close();
+            }
+            catch (Exception)
+            {
+                hui();
+            }
+        }
+        int k = 0;
+        private void стартToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hui();
+
+            DrawGraph();
+            DataGridViewTextBoxColumn kolonka;
+            kolonka = new DataGridViewTextBoxColumn();
+
+            kolonka.Name = "dgvAge";
+            kolonka.HeaderText = "Высота";
+            kolonka.Width = 100;
+
+            dataGridView1.Columns.Add(kolonka);
+
+     
+            for (int i = 0; i < 181; i++)
+            {
+                dataGridView1.Rows.Add(mas[i,0]);
+                dataGridView1.Rows[i].HeaderCell.Value = mas[i, 0];
+                dataGridView1.Rows[i].Cells[k].Value= mas[i, 1];
+            }
+            k++;
+        }
+
+
     }
 }

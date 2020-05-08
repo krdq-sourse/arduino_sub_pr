@@ -35,6 +35,7 @@
             this.сохранитьОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.zedGraph = new ZedGraph.ZedGraphControl();
+            this.стартToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +52,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.настройкиToolStripMenuItem,
-            this.сохранитьОтчетToolStripMenuItem});
+            this.сохранитьОтчетToolStripMenuItem,
+            this.стартToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(515, 24);
@@ -79,7 +81,6 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
-         
             // 
             // zedGraph
             // 
@@ -95,6 +96,13 @@
             this.zedGraph.Size = new System.Drawing.Size(331, 333);
             this.zedGraph.TabIndex = 4;
             this.zedGraph.ZoomButtons = System.Windows.Forms.MouseButtons.None;
+            // 
+            // стартToolStripMenuItem
+            // 
+            this.стартToolStripMenuItem.Name = "стартToolStripMenuItem";
+            this.стартToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.стартToolStripMenuItem.Text = "Старт";
+            this.стартToolStripMenuItem.Click += new System.EventHandler(this.стартToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -125,6 +133,7 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьОтчетToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private ZedGraph.ZedGraphControl zedGraph;
+        private System.Windows.Forms.ToolStripMenuItem стартToolStripMenuItem;
     }
 }
 
