@@ -98,7 +98,6 @@
             this.zedGraph.Size = new System.Drawing.Size(655, 544);
             this.zedGraph.TabIndex = 4;
             this.zedGraph.ZoomButtons = System.Windows.Forms.MouseButtons.None;
-            this.zedGraph.KeyDown += new System.Windows.Forms.KeyEventHandler(this.zedGraph_KeyDown);
             // 
             // label1
             // 

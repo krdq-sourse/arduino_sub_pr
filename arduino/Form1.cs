@@ -14,12 +14,13 @@ namespace arduino
 {
     public partial class Form1 : Form
     {
+        DataFromArduino dataFromArduino = new DataFromArduino();
         string[,] pole;
-        InputFromKeybord inputFromKeybord = new InputFromKeybord();
+      
         public Form1()
         {
             InitializeComponent();
-
+            dataFromArduino.FindPort();
             f1 = this;
         }
  
@@ -31,7 +32,7 @@ namespace arduino
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            dataFromArduino.FindPort();
         }
 
         private double f(double x)
@@ -133,13 +134,23 @@ namespace arduino
             k++;
         }
 
-        public void InputToThePole()
+        private void button1_Click(object sender, EventArgs e)
         {
-             pole = inputFromKeybord.ReturnArray();
-            label1.Text = inputFromKeybord.Debug();
-            MessageBox.Show(pole.Length.ToString());
-            DrowGrid();
+            dataFromArduino.Debag1();
+ 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataFromArduino.Debag2();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            label2.Text = dataFromArduino.Done();
+        }
+
+
 
         //private void Form1_KeyDown(object sender, KeyEventArgs e)
         //{
@@ -147,29 +158,7 @@ namespace arduino
         //    MessageBox.Show("хуй");
         //}
 
-        private void zedGraph_KeyDown(object sender, KeyEventArgs e)
-        {
-             inputFromKeybord.GettingFromKeybord(e.KeyCode.ToString(), this);
-           //   label1.Text = e.KeyCode.ToString();
 
 
-        }
-        int kolColums = 0;
-        private void DrowGrid() {
-            DataGridViewTextBoxColumn column;
-            column = new DataGridViewTextBoxColumn();
-
-            column.HeaderText = "Высота";
-            column.Width = 100;
-
-             dataGridView1.Columns.Add(column);
-
-            for (int i = 0; i < 2; i++)
-            {
-        
-                dataGridView1.Rows[i].HeaderCell.Value = pole[i, 0];
-                dataGridView1.Rows[i].Cells[kolColums].Value = pole[i, 1];
-            }
-        }
     }
 }
